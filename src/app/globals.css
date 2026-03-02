@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f1f1f1;
+  --foreground: #000000;
+  --nav-grey: #8a8a8a;
+  --accent-red: #ff2525;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-pixel-circle), monospace;
+}
+
+@keyframes heroTyping {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: var(--typing-chars);
+  }
+}
+
+.hero-type-line {
+  display: block;
+  width: 0ch;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-name: heroTyping;
+  animation-duration: 760ms;
+  animation-timing-function: steps(var(--typing-steps), end);
+  animation-delay: var(--typing-delay, 0ms);
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-type-line {
+    animation: none;
+    width: auto;
+  }
+}
