@@ -146,7 +146,17 @@ export default function AboutPage() {
               Yufeng Lu
             </h1>
             <p className="text-[20px] text-white leading-[1.5] max-w-[600px]">
-              Industrial Designer specializing in Medical Device Design &amp; Product Innovation
+              <span
+                className="hero-type-line"
+                style={
+                  {
+                    "--typing-chars": "68ch",
+                    "--typing-steps": "68",
+                  } as React.CSSProperties
+                }
+              >
+                Industrial Designer specializing in Medical Device Design &amp; Product Innovation
+              </span>
             </p>
 
             <div className="flex flex-wrap gap-[16px] mt-[32px]">
