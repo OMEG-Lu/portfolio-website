@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistPixelCircle } from "geist/font/pixel";
 import "./globals.css";
+import InvertCursor from "../components/InvertCursor";
 
 export const metadata: Metadata = {
   title: "Lu. — Designer, Builder, Creator",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistPixelCircle.variable}>
       <body className={`${GeistPixelCircle.className} antialiased bg-[#f1f1f1] text-black`}>
+        <InvertCursor />
         {children}
       </body>
     </html>

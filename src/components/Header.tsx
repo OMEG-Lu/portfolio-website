@@ -17,9 +17,13 @@ export default function Header() {
           <Link
             key={link.label}
             href={link.href}
-            className="w-[86px] h-[33px] flex items-center justify-center rounded-[6px] text-white text-[20px] capitalize hover:text-[#b3b3b3] transition-colors"
+            className="nav-link w-[86px] h-[33px] flex items-center justify-center rounded-[6px] text-white text-[20px] capitalize transition-colors"
           >
-            {link.label}
+            <span className="nav-link-inner relative inline-flex items-center">
+              <span className="nav-bracket nav-bracket-left">[</span>
+              {link.label}
+              <span className="nav-bracket nav-bracket-right">]</span>
+            </span>
           </Link>
         ))}
       </nav>

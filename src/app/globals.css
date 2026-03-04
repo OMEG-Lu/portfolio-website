@@ -21,6 +21,64 @@ body {
   font-family: var(--font-geist-pixel-circle), monospace;
 }
 
+#invert-cursor {
+  display: none;
+}
+
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+
+  #invert-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    border-radius: 1px;
+    transition: width 120ms ease, height 120ms ease, border-radius 120ms ease;
+  }
+
+  #invert-cursor.is-hover {
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+  }
+}
+
+/* Nav bracket hover effect */
+.nav-bracket {
+  opacity: 0;
+  transition: opacity 150ms ease, transform 150ms ease;
+  color: #b3b3b3;
+}
+
+.nav-bracket-left {
+  transform: translateX(6px);
+  margin-right: 2px;
+}
+
+.nav-bracket-right {
+  transform: translateX(-6px);
+  margin-left: 2px;
+}
+
+.nav-link:hover .nav-bracket {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav-link:hover {
+  color: #b3b3b3;
+}
+
 @keyframes heroTyping {
   from {
     width: 0ch;
@@ -46,5 +104,9 @@ body {
   .hero-type-line {
     animation: none;
     width: auto;
+  }
+
+  #invert-cursor {
+    transition: none;
   }
 }
