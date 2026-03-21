@@ -10,7 +10,6 @@
     "dev:turbo": "npm run clean && next dev --turbopack",
     "postinstall": "node scripts/sync-pdf-worker.mjs",
     "sync-pdf-worker": "node scripts/sync-pdf-worker.mjs",
-    "prebuild": "npm run clean",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
