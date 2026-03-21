@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "clean": "rm -rf .next node_modules/.cache .turbo",
+    "fix:chunks": "rm -rf .next",
+    "dev": "npm run clean && next dev",
+    "dev:fast": "next dev",
+    "dev:turbo": "npm run clean && next dev --turbopack",
+    "postinstall": "node scripts/sync-pdf-worker.mjs",
+    "sync-pdf-worker": "node scripts/sync-pdf-worker.mjs",
+    "prebuild": "npm run clean",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,7 +21,8 @@
     "geist": "^1.7.0",
     "next": "^15.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-pdf": "^10.4.1"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
