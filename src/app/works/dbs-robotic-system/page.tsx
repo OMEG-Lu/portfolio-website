@@ -1,5 +1,7 @@
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import ScrollCarousel from "../../../components/ScrollCarousel";
+import ViewportVideo from "../../../components/ViewportVideo";
 
 const projectImages = [
   "/images/dbs/main-render-01.jpg",
@@ -139,6 +141,96 @@ export default function DbsProjectPage() {
                 />
               </div>
             ))}
+
+            <div className="w-full h-px bg-black/10" />
+
+            {/* Making process carousel */}
+            <ScrollCarousel>
+              <div className="flex gap-4 w-max">
+                {Array.from({ length: 10 }, (_, i) => `/images/dbs/making/making-${i + 1}.jpg`).map((src) => (
+                  <div key={src} className="shrink-0 w-[500px] h-[340px] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={src}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </ScrollCarousel>
+
+            <div className="w-full h-px bg-black/10" />
+
+            {/* Model making grid - black & white */}
+            <div className="grid grid-cols-3 gap-2">
+              {Array.from({ length: 6 }, (_, i) => `/images/dbs/model-making/mm-${i + 1}.jpg`).map((src) => (
+                <div key={src} className="overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-full object-cover grayscale"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="overflow-hidden bg-white/50">
+              <ViewportVideo
+                src="/video/dbs-model-2682.mp4"
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+
+            <div className="overflow-hidden bg-white/50">
+              <ViewportVideo
+                src="/video/dbs-model-2686.mp4"
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+
+            <div className="w-full h-px bg-black/10" />
+
+            {/* Award images carousel */}
+            <ScrollCarousel>
+              <div className="flex gap-4 w-max">
+                {Array.from({ length: 5 }, (_, i) => `/images/dbs/award/award-${i + 1}.jpg`).map((src) => (
+                  <div key={src} className="shrink-0 w-[500px] h-[340px] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={src}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </ScrollCarousel>
+
+            <div className="w-full h-px bg-black/10" />
+
+            {/* Table cart images grid */}
+            <div className="grid grid-cols-2 gap-2">
+              {Array.from({ length: 4 }, (_, i) => `/images/dbs/table-cart/cart-${i + 1}.jpg`).map((src) => (
+                <div key={src} className="overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

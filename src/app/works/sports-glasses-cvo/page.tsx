@@ -3,6 +3,7 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import ViewportVideo from "../../../components/ViewportVideo";
 import CvoBrandBookLoader from "../../../components/cvoglasses/CvoBrandBookLoader";
+import ScrollCarousel from "../../../components/ScrollCarousel";
 
 
 export default function SportsGlassesCvoPage() {
@@ -121,71 +122,133 @@ export default function SportsGlassesCvoPage() {
                   />
                 </div>
 
-                <div className="overflow-hidden bg-white/50">
-                  <ViewportVideo
-                    src="/video/cvo/video-pages-01.mp4"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-auto object-contain"
-                  />
+                <div className="grid grid-cols-2 grid-rows-2 gap-2">
+                  <div className="overflow-hidden bg-white/50">
+                    <ViewportVideo
+                      src="/video/cvo/video-pages-01.mp4"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="overflow-hidden bg-white/50">
+                    <ViewportVideo
+                      src="/video/cvo/0204-1.mp4"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="overflow-hidden bg-white/50">
+                    <ViewportVideo
+                      src="/video/cvo/video-pages-02.mp4"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="overflow-hidden bg-white/50">
+                    <ViewportVideo
+                      src="/video/cvo/videos-pages-03.mp4"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
                 </div>
 
-                <div className="overflow-hidden bg-white/50">
-                  <ViewportVideo
-                    src="/video/cvo/0204-1.mp4"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-auto object-contain"
-                  />
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="overflow-hidden bg-white/50">
+                    <ViewportVideo
+                      src="/video/cvo/video-pages-05.mp4"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="overflow-hidden bg-white">
+                    <ViewportVideo
+                      src="/video/cvo/video-pages-06.mp4"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
                 </div>
 
-                <div className="overflow-hidden bg-white/50">
-                  <ViewportVideo
-                    src="/video/cvo/video-pages-02.mp4"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                {/* Separator */}
+                <div className="w-full h-px bg-black/10" />
 
-                <div className="overflow-hidden bg-white/50">
-                  <ViewportVideo
-                    src="/video/cvo/videos-pages-03.mp4"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                {/* Horizontal scrollable image carousel */}
+                <ScrollCarousel>
+                  <div className="flex gap-4 w-max">
+                    {[
+                      "/images/cvo/display.jpg",
+                      "/images/cvo/wearing-1.jpg",
+                      "/images/cvo/wearing-2.jpg",
+                      "/images/cvo/wearing-3.jpg",
+                      "/images/cvo/wearing-4.jpg",
+                    ].map((src) => (
+                      <div key={src} className="shrink-0 w-[500px] h-[340px] overflow-hidden">
+                        <img
+                          src={src}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </ScrollCarousel>
 
-                <div className="overflow-hidden bg-white/50">
-                  <ViewportVideo
-                    src="/video/cvo/video-pages-05.mp4"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                <div className="w-full h-px bg-black/10" />
 
-                <div className="overflow-hidden bg-white">
-                  <ViewportVideo
-                    src="/video/cvo/video-pages-06.mp4"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
+                {/* Model making carousel */}
+                <ScrollCarousel>
+                  <div className="flex gap-4 w-max">
+                    {Array.from({ length: 12 }, (_, i) => `/images/cvo/making/making-${i + 1}.jpg`).map((src) => (
+                      <div key={src} className="shrink-0 w-[500px] h-[340px] overflow-hidden">
+                        <img
+                          src={src}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </ScrollCarousel>
+
+                <div className="w-full h-px bg-black/10" />
+
+                {/* Model images carousel */}
+                <ScrollCarousel>
+                  <div className="flex gap-4 w-max">
+                    {Array.from({ length: 10 }, (_, i) => `/images/cvo/models/model-${i + 1}.jpg`).map((src) => (
+                      <div key={src} className="shrink-0 w-[500px] h-[340px] overflow-hidden">
+                        <img
+                          src={src}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </ScrollCarousel>
             </div>
           </div>
         </section>
