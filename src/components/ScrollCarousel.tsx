@@ -6,6 +6,8 @@ export default function ScrollCarousel({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const userControlRef = useRef(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   const check = useCallback(() => {
     const el = ref.current;
@@ -26,7 +28,52 @@ export default function ScrollCarousel({ children }: { children: ReactNode }) {
     };
   }, [check]);
 
+  // Auto-scroll logic
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const autoScroll = () => {
+      if (userControlRef.current) return;
+      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 2;
+      if (atEnd) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: 1, behavior: "auto" });
+      }
+    };
+
+    const interval = setInterval(autoScroll, 30);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Pause auto-scroll on user interaction, resume after 3s
+  const pauseAutoScroll = useCallback(() => {
+    userControlRef.current = true;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      userControlRef.current = false;
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onWheel = () => pauseAutoScroll();
+    const onPointerDown = () => pauseAutoScroll();
+    const onTouchStart = () => pauseAutoScroll();
+    el.addEventListener("wheel", onWheel, { passive: true });
+    el.addEventListener("pointerdown", onPointerDown);
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("pointerdown", onPointerDown);
+      el.removeEventListener("touchstart", onTouchStart);
+    };
+  }, [pauseAutoScroll]);
+
   const scroll = (dir: -1 | 1) => {
+    pauseAutoScroll();
     ref.current?.scrollBy({ left: dir * 400, behavior: "smooth" });
   };
 
