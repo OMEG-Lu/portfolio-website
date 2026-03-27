@@ -113,6 +113,38 @@ export default function DetachableModularDisposableEndoscopePage() {
 
         <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
           <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+            {/* Research images - 2x2 grid */}
+            <div className="grid grid-cols-2 gap-2">
+              {Array.from({ length: 4 }, (_, i) => `/images/endoscope/research/research-${i + 1}.jpg`).map((src) => (
+                <div key={src} className="overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="w-full h-px bg-black/10" />
+
+            {/* Sketches - 2x2 grid */}
+            <div className="grid grid-cols-2 gap-2">
+              {Array.from({ length: 4 }, (_, i) => `/images/endoscope/sketches/sketch-${i + 1}.jpg`).map((src) => (
+                <div key={src} className="overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
             {preGridImages.map((src) => (
               <div key={src} className="overflow-hidden bg-white/50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
