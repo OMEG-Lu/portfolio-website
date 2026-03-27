@@ -1,6 +1,7 @@
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import ViewportVideo from "../../../components/ViewportVideo";
+import ScrollCarousel from "../../../components/ScrollCarousel";
 
 const projectImages = [
   "/images/gripflow/gripflow-01.jpg",
@@ -113,14 +114,14 @@ export default function GripFlowProjectPage() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             <div className="overflow-hidden bg-white/50">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={heroRendering}
                 alt="GripFlow main rendering"
-                className="w-full object-cover h-[420px] md:h-[640px]"
+                className="w-full h-auto"
                 loading="eager"
               />
             </div>
@@ -148,6 +149,22 @@ export default function GripFlowProjectPage() {
                 </a>
               </div>
             </div>
+
+            {/* Initial presentation carousel */}
+            <ScrollCarousel>
+              <div className="flex gap-0 w-max">
+                {Array.from({ length: 29 }, (_, i) => `/images/gripflow/presentation/pres-${i + 1}.jpg`).map((src) => (
+                  <div key={src} className="shrink-0 w-[calc(100vw-120px)] max-w-[1600px] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={src}
+                      alt=""
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </ScrollCarousel>
 
             {detailImagesMain.map((src, i) => (
               <div key={src} className="overflow-hidden bg-white/50">

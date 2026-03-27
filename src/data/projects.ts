@@ -33,7 +33,15 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverVideo: "/video/cvo%20project%20thumbnail%20video.mp4",
   },
   {
-    title: "04 GenZ Furniture Design for Crate & Barrel",
+    title: "04 DDK Bike Seat Production Line System Design",
+    description:
+      "Production line system design focusing on visualizing manufacturing and optimizing the assembly sequence.",
+    image: "/images/project-04-ddk.png",
+    href: "/works/ddk-bike-seat-production-line",
+    hoverVideo: "/video/ddk-hover.mp4",
+  },
+  {
+    title: "05 GenZ Furniture Design for Crate & Barrel",
     description:
       "Conducted branding research and industrial design for Gen Z users in small living spaces.",
     image: "/images/project-04.png",
@@ -41,7 +49,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverVideo: "/video/chair-animation-hover.mp4",
   },
   {
-    title: "05 Service Design AI Hospital Monitoring System",
+    title: "06 Service Design AI Hospital Monitoring System",
     description:
       "Meant to increase the efficiency of hospitals and provide AI services for both doctors and patients.",
     image: "/images/project-05.png",
@@ -49,7 +57,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverVideo: "/video/hospital%20monitoring%20system%20thumbnail%20video.mp4",
   },
   {
-    title: "06 Sneaker Design - Reaction 01",
+    title: "07 Sneaker Design - Reaction 01",
     description:
       "Organic Structure Computational Design for Sneaker Design. Tool Using Grasshopper and Rhino.",
     image: "/images/project-06.png",
@@ -57,7 +65,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "07 Automated Immunohistochemistry (IHC) Stainer",
+    title: "08 Automated Immunohistochemistry (IHC) Stainer",
     description:
       "An automated IHC stainer is an automated device used for pathological diagnosis.",
     image: "/images/project-07.png",
@@ -65,7 +73,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "08 Design of a Detachable Modular Disposable Endoscope",
+    title: "09 Design of a Detachable Modular Disposable Endoscope",
     description:
       "A detachable modular disposable endoscope concept focused on sterility and workflow efficiency.",
     image: "/images/project-08.png",
@@ -73,7 +81,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "09 Visualizing Finger Therapy's Neurological Impact",
+    title: "10 Visualizing Finger Therapy's Neurological Impact",
     description:
       "Data visualization illustrating the impact of finger therapy on the nervous system for thesis research.",
     image: "/images/project-09.png",
@@ -81,7 +89,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "10 VR surgeon simulation system - visualization project",
+    title: "11 VR surgeon simulation system - visualization project",
     description:
       "Medical design, health, and UI/UX design research and visualization (Figma, graphic design).",
     image: "/images/project-10.png",
@@ -89,7 +97,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "11 EVA keyboard",
+    title: "12 EVA keyboard",
     description:
       "Dynamic design of the keyboard from the EVA animation — sci-fi but restrained. Blender, render animation.",
     image: "/images/project-11.png",
@@ -97,7 +105,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "12 Personal project 2024-01",
+    title: "13 Personal project 2024-01",
     description:
       "A personal project depicting a Ghost in the Shell–inspired scene using dynamic graphics. Blender, digital art.",
     image: "/images/project-12.png",
@@ -105,7 +113,7 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "13 Archive",
+    title: "14 Archive",
     description: "Archive of past work and selected projects.",
     image: "/images/project-13.png",
     href: "/works/archive",

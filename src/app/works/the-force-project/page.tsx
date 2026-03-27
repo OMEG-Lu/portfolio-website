@@ -205,8 +205,8 @@ export default function TheForceProjectPage() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             {modules.map((module, index) => {
               if (module.type === "text") {
                 return (

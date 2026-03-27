@@ -105,14 +105,14 @@ export default function DbsProjectPage() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             <div className="overflow-hidden bg-white/50">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={heroRendering}
                 alt="DBS project main rendering"
-                className="w-full object-cover h-[420px] md:h-[640px]"
+                className="w-full h-auto"
                 loading="eager"
               />
             </div>

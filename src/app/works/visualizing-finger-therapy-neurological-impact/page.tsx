@@ -90,8 +90,8 @@ export default function VisualizingFingerTherapyPage() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             {projectImages.map((src) => (
               <div key={src} className="overflow-hidden bg-white/50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

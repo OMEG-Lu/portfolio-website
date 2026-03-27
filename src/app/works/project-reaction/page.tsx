@@ -99,8 +99,8 @@ export default function ProjectReactionPage() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             {reactionLeadImages.map((src) => (
               <div key={src} className="overflow-hidden bg-white/50">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -123,6 +123,21 @@ export default function ProjectReactionPage() {
                 <img src={src} alt="Project-Reaction visual" className="w-full h-auto" loading="lazy" />
               </div>
             ))}
+
+            {/* Process images grid */}
+            <div className="grid grid-cols-2 gap-2">
+              {Array.from({ length: 8 }, (_, i) => `/images/reaction/process/proc-${i + 1}.jpg`).map((src) => (
+                <div key={src} className="overflow-hidden h-[400px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

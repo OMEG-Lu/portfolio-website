@@ -96,8 +96,8 @@ export default function PersonalProject202401Page() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             <div className="overflow-hidden bg-white/50">
               <div className="relative w-full pt-[56.25%]">
                 <iframe

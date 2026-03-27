@@ -92,8 +92,8 @@ export default function SportsGlassesCvoPage() {
           </div>
         </section>
 
-        <section className="w-full overflow-x-clip px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[24px]">
+        <section className="w-full overflow-x-clip px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[24px]">
             {/* Title row matches other sections */}
             <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-[32px] items-start">
               <h2 className="text-[20px] text-black capitalize">Presentation</h2>

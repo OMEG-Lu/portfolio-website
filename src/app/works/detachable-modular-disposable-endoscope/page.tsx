@@ -111,8 +111,8 @@ export default function DetachableModularDisposableEndoscopePage() {
           </div>
         </section>
 
-        <section className="w-full px-[40px] md:px-[80px] pb-[80px]">
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-[16px]">
+        <section className="w-full px-[40px] md:px-[60px] pb-[80px]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-[16px]">
             {/* Research images - 2x2 grid */}
             <div className="grid grid-cols-2 gap-2">
               {Array.from({ length: 4 }, (_, i) => `/images/endoscope/research/research-${i + 1}.jpg`).map((src) => (
