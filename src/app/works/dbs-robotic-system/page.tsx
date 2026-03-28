@@ -176,26 +176,29 @@ export default function DbsProjectPage() {
               ))}
             </div>
 
-            <div className="overflow-hidden bg-white/50">
-              <ViewportVideo
-                src="/video/dbs-model-2682.mp4"
-                controls
-                muted
-                playsInline
-                preload="metadata"
-                className="w-full h-auto object-contain"
-              />
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-[2.1fr_1fr] gap-[16px] items-stretch">
+              <div className="overflow-hidden bg-white/50 h-full">
+                <ViewportVideo
+                  src="/video/dbs-model-2682.mp4"
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  containerClassName="h-full"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
 
-            <div className="overflow-hidden bg-white/50">
-              <ViewportVideo
-                src="/video/dbs-model-2686.mp4"
-                controls
-                muted
-                playsInline
-                preload="metadata"
-                className="w-full h-auto object-contain"
-              />
+              <div className="overflow-hidden bg-white/50">
+                <ViewportVideo
+                  src="/video/dbs-model-2686.mp4"
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </div>
 
             <div className="w-full h-px bg-black/10" />

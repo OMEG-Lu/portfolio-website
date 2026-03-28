@@ -12,6 +12,7 @@ interface ProjectCardProps {
   hoverVideo?: string;
   hoverVideos?: string[];
   hoverZoom?: boolean;
+  cardClassName?: string;
 }
 
 export default function ProjectCard({
@@ -23,6 +24,7 @@ export default function ProjectCard({
   hoverVideo,
   hoverVideos,
   hoverZoom,
+  cardClassName,
 }: ProjectCardProps) {
   const videoSources = useMemo(() => {
     if (hoverVideos && hoverVideos.length > 0) {
@@ -37,8 +39,14 @@ export default function ProjectCard({
   const hasHoverVideo = videoSources.length > 0;
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const cardRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const currentHoverVideo = hasHoverVideo ? videoSources[activeVideoIndex] : undefined;
+  const isActive = hasHoverVideo && (isHovered || (isTouchDevice && isInView));
+  const shouldShowVideo = isActive && isVideoReady;
 
   const handleSequenceEnd = () => {
     if (videoSources.length <= 1) return;
@@ -46,19 +54,73 @@ export default function ProjectCard({
   };
 
   useEffect(() => {
-    if (!isHovered || !currentHoverVideo || !videoRef.current) return;
-    const playPromise = videoRef.current.play();
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+    const updateTouchMode = () => setIsTouchDevice(mediaQuery.matches);
+
+    updateTouchMode();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", updateTouchMode);
+      return () => mediaQuery.removeEventListener("change", updateTouchMode);
+    }
+
+    mediaQuery.addListener(updateTouchMode);
+    return () => mediaQuery.removeListener(updateTouchMode);
+  }, []);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card || !hasHoverVideo || !isTouchDevice) {
+      setIsInView(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting && entry.intersectionRatio >= 0.6);
+      },
+      {
+        threshold: [0.35, 0.6, 0.85],
+        rootMargin: "-8% 0px -8% 0px",
+      }
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [hasHoverVideo, isTouchDevice]);
+
+  useEffect(() => {
+    setIsVideoReady(false);
+  }, [currentHoverVideo]);
+
+  useEffect(() => {
+    if (!currentHoverVideo || !videoRef.current) return;
+    const video = videoRef.current;
+
+    if (!isActive) {
+      video.pause();
+      video.currentTime = 0;
+      if (videoSources.length > 1) {
+        setActiveVideoIndex(0);
+      }
+      return;
+    }
+
+    const playPromise = video.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {
-        // Ignore autoplay/play promise interruptions from quick hover transitions.
+        // Ignore autoplay/play promise interruptions from quick hover/touch transitions.
       });
     }
-  }, [isHovered, currentHoverVideo]);
+  }, [isActive, currentHoverVideo, videoSources.length]);
 
   const card = (
     <section
+      ref={cardRef}
       style={{ position: "relative" }}
-      className="h-[335px] rounded-[15px] overflow-hidden group cursor-pointer"
+      className={`h-[335px] rounded-[15px] overflow-hidden group cursor-pointer ${cardClassName ?? ""}`}
       onMouseEnter={() => {
         setIsHovered(true);
         if (videoSources.length > 1) setActiveVideoIndex(0);
@@ -77,9 +139,9 @@ export default function ProjectCard({
         src={image}
         alt={title}
         className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
-          hasHoverVideo ? "opacity-100 group-hover:opacity-0" : ""
+          hasHoverVideo && shouldShowVideo ? "opacity-0" : "opacity-100"
         } ${
-          hoverZoom ? "group-hover:scale-[1.06]" : ""
+          hoverZoom ? (isHovered ? "scale-[1.06]" : "scale-100") : ""
         }`}
       />
       {currentHoverVideo && (
@@ -91,7 +153,10 @@ export default function ProjectCard({
           playsInline
           preload="metadata"
           onEnded={handleSequenceEnd}
-          className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          onLoadedData={() => setIsVideoReady(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            shouldShowVideo ? "opacity-100" : "opacity-0"
+          }`}
         >
           <source src={currentHoverVideo} type="video/mp4" />
         </video>

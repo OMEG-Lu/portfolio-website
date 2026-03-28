@@ -22,20 +22,20 @@ const creatorTypeStyle = {
 } as CSSProperties;
 
 const storytellerTypeStyle = {
-  "--typing-chars": "12ch",
-  "--typing-steps": "12",
+  "--typing-chars": "11ch",
+  "--typing-steps": "11",
   "--typing-delay": "2580ms",
 } as CSSProperties;
 
 const thinkerTypeStyle = {
-  "--typing-chars": "8ch",
-  "--typing-steps": "8",
+  "--typing-chars": "7ch",
+  "--typing-steps": "7",
   "--typing-delay": "3620ms",
 } as CSSProperties;
 
 const researcherTypeStyle = {
-  "--typing-chars": "11ch",
-  "--typing-steps": "11",
+  "--typing-chars": "10ch",
+  "--typing-steps": "10",
   "--typing-delay": "4340ms",
 } as CSSProperties;
 
@@ -62,22 +62,22 @@ export default function Hero() {
           </Link>
         </p>
         <p className="text-[#ff2525] mb-[64px]">&gt;&gt;&gt;</p>
-        <p className="hero-type-line text-black" style={designerTypeStyle}>
-          designer
+        <p className="hero-type-line hero-type-trail text-black" style={designerTypeStyle}>
+          Designer
         </p>
-        <p className="hero-type-line text-black" style={builderTypeStyle}>
-          builder
+        <p className="hero-type-line hero-type-trail text-black" style={builderTypeStyle}>
+          Builder
         </p>
-        <p className="hero-type-line text-black" style={creatorTypeStyle}>
-          creator
+        <p className="hero-type-line hero-type-trail text-black" style={creatorTypeStyle}>
+          Creator
         </p>
-        <p className="hero-type-line text-black" style={storytellerTypeStyle}>
+        <p className="hero-type-line hero-type-trail text-black" style={storytellerTypeStyle}>
           Storyteller
         </p>
-        <p className="hero-type-line text-black" style={thinkerTypeStyle}>
+        <p className="hero-type-line hero-type-trail text-black" style={thinkerTypeStyle}>
           Thinker
         </p>
-        <p className="hero-type-line text-black" style={researcherTypeStyle}>
+        <p className="hero-type-line hero-type-trail hero-type-cursor text-black" style={researcherTypeStyle}>
           Researcher
         </p>
       </div>

@@ -6,11 +6,13 @@ interface ViewportVideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
   /** Fraction of the video that must be visible to start playing (0–1). Default 0.25 */
   visibleThreshold?: number;
+  containerClassName?: string;
 }
 
 export default function ViewportVideo({
   src,
   visibleThreshold = 0.25,
+  containerClassName,
   className,
   ...videoProps
 }: ViewportVideoProps) {
@@ -43,7 +45,10 @@ export default function ViewportVideo({
   }, [visibleThreshold]);
 
   return (
-    <div ref={containerRef} className="w-full">
+    <div
+      ref={containerRef}
+      className={["w-full", containerClassName].filter(Boolean).join(" ")}
+    >
       <video
         ref={videoRef}
         src={src}
