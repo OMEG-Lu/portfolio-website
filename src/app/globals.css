@@ -116,6 +116,9 @@ body {
   background: #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   opacity: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity;
   animation: heroCursorTrail 760ms step-end forwards;
   animation-delay: var(--typing-delay, 0ms);
 }
@@ -136,6 +139,9 @@ body {
   background: #ffffff;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   opacity: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity;
   animation: heroCursorBlink 960ms step-end infinite;
   animation-delay: calc(var(--typing-delay, 0ms) + 760ms);
 }
@@ -144,9 +150,11 @@ body {
   0%,
   99% {
     opacity: 1;
+    visibility: visible;
   }
   100% {
     opacity: 0;
+    visibility: hidden;
   }
 }
 
