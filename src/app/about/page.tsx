@@ -18,6 +18,7 @@ const experience = [
     points: [
       "Led the design of DBS medical robot project, coordinating with an 8-member engineering team",
       "Delivered concept-to-prototype design solutions, contributing to Shanghai Top 100+ Design Award",
+      "DBS project selected for exhibition at WDCC 2022 (World Design Cities Conference), Huangpu Riverside, Shanghai",
       "Conducted user research with Parkinson's patients and surgeons to optimize surgical workflow",
     ],
   },
@@ -77,6 +78,7 @@ const skillGroups = [
 ];
 
 const awards = [
+  { title: "Bronze Award — Global Sportswear Design Award, Apparel Category", year: "2022" },
   { title: "Shanghai Design Top 100+ Design Award", year: "2021" },
   { title: "First Place — Kohler Design Challenge", year: "2017" },
   {
@@ -121,7 +123,7 @@ const otherProjects = [
   "Companion Robot for Alzheimer's Patients (2021)",
   "Diagnostic Space for Depression (2022)",
   "Disposable Endoscope Modular Design (2022)",
-  "Assistive Exoskeleton Dynamic Design (2022)",
+  "Wearable Portable Exoskeleton Concept Design (2022) — Bronze Award, Global Sportswear Design Award",
   "DNA Electrophoresis Device (2021)",
   "Automated Immunohistochemistry Device (2021)",
 ];
