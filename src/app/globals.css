@@ -101,13 +101,23 @@ body {
 }
 
 .hero-type-trail {
+  position: relative;
   padding-right: 0.03em;
-  border-right: 0.08em solid transparent;
-  animation-name: heroTyping, heroCursorTrail;
-  animation-duration: 760ms, 760ms;
-  animation-timing-function: steps(var(--typing-steps), end), step-end;
-  animation-delay: var(--typing-delay, 0ms), var(--typing-delay, 0ms);
-  animation-fill-mode: forwards, forwards;
+}
+
+.hero-type-trail::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.1em;
+  width: 0.08em;
+  height: 0.82em;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: heroCursorTrail 760ms step-end forwards;
+  animation-delay: var(--typing-delay, 0ms);
 }
 
 .hero-type-cursor {
@@ -133,10 +143,10 @@ body {
 @keyframes heroCursorTrail {
   0%,
   99% {
-    border-right-color: #ffffff;
+    opacity: 1;
   }
   100% {
-    border-right-color: transparent;
+    opacity: 0;
   }
 }
 
@@ -158,8 +168,12 @@ body {
   }
 
   .hero-type-trail {
-    border-right-color: transparent;
     padding-right: 0;
+  }
+
+  .hero-type-trail::before {
+    animation: none;
+    opacity: 0;
   }
 
   .hero-type-cursor {
