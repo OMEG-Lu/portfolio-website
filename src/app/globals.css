@@ -36,6 +36,8 @@ body {
     top: 0;
     z-index: 99999;
     display: block;
+    opacity: 0;
+    visibility: hidden;
     width: 12px;
     height: 12px;
     background: #ffffff;
@@ -43,7 +45,16 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%);
     border-radius: 1px;
-    transition: width 120ms ease, height 120ms ease, border-radius 120ms ease;
+    transition:
+      opacity 80ms ease,
+      width 120ms ease,
+      height 120ms ease,
+      border-radius 120ms ease;
+  }
+
+  #invert-cursor.is-visible {
+    opacity: 1;
+    visibility: visible;
   }
 
   #invert-cursor.is-hover {

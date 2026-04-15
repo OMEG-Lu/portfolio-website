@@ -52,6 +52,7 @@ export default function ViewportVideo({
       <video
         ref={videoRef}
         src={src}
+        draggable={false}
         className={className}
         playsInline
         {...videoProps}

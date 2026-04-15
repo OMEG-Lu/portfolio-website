@@ -29,6 +29,29 @@ const processGridImages = [
   "/images/gripflow/process-152948.jpg",
   "/images/gripflow/process-153009.jpg",
 ];
+const buildingAreaImages = [
+  "/images/gripflow/fv_cup_04.png",
+  "/images/gripflow/fv_cup_06.png",
+];
+const buildingAreaGridImages = [
+  "/images/gripflow/fv_cup_08.png",
+  "/images/gripflow/fv_cup_11.png",
+  "/images/gripflow/fv_cup_12.png",
+  "/images/gripflow/fv_cup_13.png",
+];
+const buildingAreaBottomImage = "/images/gripflow/fv_cup_05.png";
+const buildingAreaVideos = [
+  "/video/gripflow/video.mp4",
+  "/video/gripflow/VGjrOUuutgEroCpqAYqw4_video.mp4",
+];
+const buildingAreaAiLeftColumnImages = [
+  "/images/gripflow/GS8PkyqlzWTR0Bn3lsUvc_tLamiCSP.png",
+  "/images/gripflow/Fndunh7mQsYBX1AiRKJsI_JV1tJjdX.png",
+];
+const buildingAreaAiRightColumnImages = [
+  "/images/gripflow/e0ep2C2hd0SayeeSITnLU_aPc1xkgT.png",
+  "/images/gripflow/OUFsLhV0WWvamOtt5PzPd_njK0SEfa.png",
+];
 const detailImagesMain = detailImages.filter(
   (src) => ![...processGridImages, posterImage].includes(src)
 );
@@ -203,6 +226,74 @@ export default function GripFlowProjectPage() {
             <div className="overflow-hidden bg-white/50">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={posterImage} alt="GripFlow project poster" className="w-full h-auto" loading="lazy" />
+            </div>
+
+            <div className="flex w-full items-center gap-[12px]">
+              <div className="h-px flex-1 bg-black/10" />
+              <p className="text-[13px] text-black/50 uppercase tracking-wide whitespace-nowrap">
+                BUILDING AREA
+              </p>
+              <div className="h-px flex-1 bg-black/10" />
+            </div>
+
+            {buildingAreaImages.map((src) => (
+              <div key={src} className="overflow-hidden bg-white/50">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt="GripFlow building area visual" className="w-full h-auto" loading="lazy" />
+              </div>
+            ))}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+              {buildingAreaGridImages.map((src) => (
+                <div key={src} className="overflow-hidden bg-white/50">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt="GripFlow building area detail visual" className="w-full h-auto" loading="lazy" />
+                </div>
+              ))}
+            </div>
+
+            <div className="overflow-hidden bg-white/50">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={buildingAreaBottomImage} alt="GripFlow building area visual" className="w-full h-auto" loading="lazy" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+              {buildingAreaVideos.map((src) => (
+                <div key={src} className="overflow-hidden bg-white/50">
+                  <ViewportVideo
+                    src={src}
+                    controls
+                    muted
+                    loop
+                    preload="metadata"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] items-start">
+              {[buildingAreaAiLeftColumnImages, buildingAreaAiRightColumnImages].map((columnImages, columnIndex) => (
+                <div key={columnIndex} className="flex flex-col gap-[16px]">
+                  {columnImages.map((src, imageIndex) => (
+                    <div
+                      key={src}
+                      className={[
+                        "overflow-hidden bg-white/50",
+                        imageIndex === 1 ? "md:h-[600px]" : "",
+                      ].join(" ")}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt="GripFlow AI visual"
+                        className={imageIndex === 1 ? "w-full h-full object-cover" : "w-full h-auto"}
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </section>

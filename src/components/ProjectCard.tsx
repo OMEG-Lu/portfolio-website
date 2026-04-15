@@ -138,6 +138,7 @@ export default function ProjectCard({
       <img
         src={image}
         alt={title}
+        draggable={false}
         className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
           hasHoverVideo && shouldShowVideo ? "opacity-0" : "opacity-100"
         } ${
@@ -148,10 +149,11 @@ export default function ProjectCard({
         <video
           key={currentHoverVideo}
           ref={videoRef}
+          draggable={false}
           muted
           loop={videoSources.length === 1}
           playsInline
-          preload="metadata"
+          preload="none"
           onEnded={handleSequenceEnd}
           onLoadedData={() => setIsVideoReady(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
