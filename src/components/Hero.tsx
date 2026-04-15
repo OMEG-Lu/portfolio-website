@@ -48,6 +48,7 @@ export default function Hero() {
           autoPlay
           draggable={false}
           muted
+          poster="/images/hero-bg-poster.jpg"
           playsInline
           className="absolute w-[120%] h-full object-cover"
         >
