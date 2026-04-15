@@ -52,6 +52,7 @@ const buildingAreaAiRightColumnImages = [
   "/images/gripflow/e0ep2C2hd0SayeeSITnLU_aPc1xkgT.png",
   "/images/gripflow/OUFsLhV0WWvamOtt5PzPd_njK0SEfa.png",
 ];
+const endingImage = "/images/gripflow/0012.png";
 const detailImagesMain = detailImages.filter(
   (src) => ![...processGridImages, posterImage].includes(src)
 );
@@ -294,6 +295,11 @@ export default function GripFlowProjectPage() {
                   ))}
                 </div>
               ))}
+            </div>
+
+            <div className="overflow-hidden bg-white/50">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={endingImage} alt="GripFlow ending visual" className="w-full h-auto" loading="lazy" />
             </div>
           </div>
         </section>
