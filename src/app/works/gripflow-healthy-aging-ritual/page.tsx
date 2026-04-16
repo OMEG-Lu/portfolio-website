@@ -53,6 +53,7 @@ const buildingAreaAiRightColumnImages = [
   "/images/gripflow/OUFsLhV0WWvamOtt5PzPd_njK0SEfa.png",
 ];
 const endingImage = "/images/gripflow/0012.png";
+const finalAwardImage = "/images/gripflow/1f81f571-20ff-4706-a128-f455faefc7ad.jpg";
 const detailImagesMain = detailImages.filter(
   (src) => ![...processGridImages, posterImage].includes(src)
 );
@@ -300,6 +301,21 @@ export default function GripFlowProjectPage() {
             <div className="overflow-hidden bg-white/50">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={endingImage} alt="GripFlow ending visual" className="w-full h-auto" loading="lazy" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] items-stretch">
+              <div className="overflow-hidden bg-white/50">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={finalAwardImage} alt="GripFlow award visual" className="w-full h-auto" loading="lazy" />
+              </div>
+
+              <div className="bg-white/50 flex items-center px-[28px] py-[40px] md:px-[40px]">
+                <div className="pl-[20px] md:pl-[24px]">
+                  <p className="text-[28px] md:text-[40px] leading-[1.15] text-black text-left">
+                    Still in the competition process. Hope I can get it!!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
