@@ -113,7 +113,23 @@ export const ALL_PROJECTS: ProjectItem[] = [
     hoverZoom: true,
   },
   {
-    title: "14 Archive",
+    title: "14 Proton Motor Design",
+    description:
+      "Boat motor design completed in MatteLab using Rhino, C4D, and Grasshopper.",
+    image: "/images/proton-motor-design/renderings/4660.jpg",
+    href: "/works/proton-motor-design",
+    hoverZoom: true,
+  },
+  {
+    title: "15 2X4 package design",
+    description:
+      "Package design for a wellness liquid vitamin brand, focused on simple, easy-to-shop nutrition.",
+    image: "/images/2x4-package-design/renderings/main-rendering.png",
+    href: "/works/2x4-package-design",
+    hoverZoom: true,
+  },
+  {
+    title: "16 Archive",
     description: "Archive of past work and selected projects.",
     image: "/images/project-13.png",
     href: "/works/archive",
