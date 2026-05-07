@@ -54,6 +54,11 @@ const buildingAreaAiRightColumnImages = [
 ];
 const endingImage = "/images/gripflow/0012.png";
 const finalAwardImage = "/images/gripflow/1f81f571-20ff-4706-a128-f455faefc7ad.jpg";
+const finalProcessImage = "/images/gripflow/fxn-2026-final.jpg";
+const finalProcessVideo = "/video/gripflow/dam-2026-final.mp4";
+const finalProcessImageTwo = "/images/gripflow/fxn-2026-final-2.jpg";
+const finalProcessImageThree = "/images/gripflow/weixin-2026-final.jpg";
+const finalRotatedImage = "/images/gripflow/weixin-20260429-rotated.jpg";
 const detailImagesMain = detailImages.filter(
   (src) => ![...processGridImages, posterImage].includes(src)
 );
@@ -298,24 +303,80 @@ export default function GripFlowProjectPage() {
               ))}
             </div>
 
-            <div className="overflow-hidden bg-white/50">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={endingImage} alt="GripFlow ending visual" className="w-full h-auto" loading="lazy" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] items-stretch">
+              <div className="overflow-hidden bg-white/50 md:h-[620px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={endingImage}
+                  alt="GripFlow ending visual"
+                  className="w-full h-auto md:h-full md:object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="overflow-hidden bg-white/50 md:h-[620px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={finalAwardImage}
+                  alt="GripFlow award visual"
+                  className="w-full h-auto md:h-full md:object-cover md:object-top"
+                  loading="lazy"
+                />
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] items-stretch">
-              <div className="overflow-hidden bg-white/50">
+              <div className="overflow-hidden bg-white/50 md:h-[720px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={finalAwardImage} alt="GripFlow award visual" className="w-full h-auto" loading="lazy" />
+                <img
+                  src={finalProcessImage}
+                  alt="GripFlow final process photo"
+                  className="w-full h-auto md:h-full md:object-cover"
+                  loading="lazy"
+                />
               </div>
 
-              <div className="bg-white/50 flex items-center px-[28px] py-[40px] md:px-[40px]">
-                <div className="pl-[20px] md:pl-[24px]">
-                  <p className="text-[28px] md:text-[40px] leading-[1.15] text-black text-left">
-                    Still in the competition process. Hope I can get it!!
-                  </p>
-                </div>
+              <ViewportVideo
+                src={finalProcessVideo}
+                containerClassName="overflow-hidden bg-white/50 md:h-[720px]"
+                className="w-full h-auto md:h-full md:object-cover"
+                autoPlay
+                muted
+                loop
+                controls
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] items-stretch">
+              <div className="overflow-hidden bg-white/50 md:h-[720px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={finalProcessImageTwo}
+                  alt="GripFlow final process photo"
+                  className="w-full h-auto md:h-full md:object-cover"
+                  loading="lazy"
+                />
               </div>
+
+              <div className="overflow-hidden bg-white/50 md:h-[720px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={finalProcessImageThree}
+                  alt="GripFlow final process photo"
+                  className="w-full h-auto md:h-full md:object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="overflow-hidden bg-white/50">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={finalRotatedImage}
+                alt="GripFlow final rotated process photo"
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
